@@ -1,0 +1,11 @@
+[
+  {
+    "title": "Synthetic incident",
+    "description": "A fictional processing queue is delayed. No real customer data is used."
+  },
+  {
+    "title": "Demo documentation",
+    "description": "Add a short troubleshooting section to the public demo."
+  }
+]
+

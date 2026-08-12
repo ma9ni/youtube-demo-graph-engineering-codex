@@ -1,0 +1,36 @@
+experiment:
+  name: prompt-versus-task-graph
+  issue: ISSUE.md
+  invariant: same starting commit, model, permissions, time limit and acceptance criteria
+  verdict: must remain empty until both runs are measured
+
+nodes:
+  - id: G0
+    title: Freeze scope and acceptance criteria
+    depends_on: []
+    evidence: notes/G0-scope.md
+  - id: G1
+    title: Map impacted files, flows and risks
+    depends_on: [G0]
+    evidence: notes/G1-impact-map.md
+  - id: G2
+    title: Add tests proving the requested behavior
+    depends_on: [G0]
+    evidence: tests
+  - id: G3
+    title: Implement the smallest valid change
+    depends_on: [G1, G2]
+    evidence: git diff
+  - id: G4
+    title: Run focused and full validation, then fix failures
+    depends_on: [G3]
+    evidence: make validate
+  - id: G5
+    title: Review security, regression and missed criteria separately
+    depends_on: [G4]
+    evidence: notes/G5-review.md
+  - id: G6
+    title: Record changes, limitations and measured verdict
+    depends_on: [G5]
+    evidence: metrics-results.md
+
