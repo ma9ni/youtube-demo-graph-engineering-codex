@@ -36,7 +36,7 @@ Ouvrir ensuite <http://127.0.0.1:8000/docs>. Aucun fichier `.env` ni aucune clé
 
 ## Préparer l'expérience A/B sans écraser son travail
 
-Utiliser deux clones jetables démarrant du même tag :
+Utiliser deux clones jetables démarrant du même repère Git :
 
 ```bash
 git clone https://github.com/ma9ni/youtube-demo-graph-engineering-codex.git demo-prompt
