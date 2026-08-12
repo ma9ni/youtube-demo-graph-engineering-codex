@@ -27,8 +27,15 @@ def initialize_database() -> None:
             CREATE TABLE IF NOT EXISTS tickets (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 title TEXT NOT NULL,
-                description TEXT NOT NULL
+                description TEXT NOT NULL,
+                status TEXT NOT NULL DEFAULT 'pending'
             )
             """
         )
-
+        columns = {
+            row["name"] for row in connection.execute("PRAGMA table_info(tickets)").fetchall()
+        }
+        if "status" not in columns:
+            connection.execute(
+                "ALTER TABLE tickets ADD COLUMN status TEXT NOT NULL DEFAULT 'pending'"
+            )

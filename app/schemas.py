@@ -1,4 +1,12 @@
+from enum import StrEnum
+
 from pydantic import BaseModel, Field
+
+
+class TicketStatus(StrEnum):
+    PENDING = "pending"
+    IN_PROGRESS = "in_progress"
+    DONE = "done"
 
 
 class TicketCreate(BaseModel):
@@ -10,4 +18,8 @@ class Ticket(BaseModel):
     id: int
     title: str
     description: str
+    status: TicketStatus
 
+
+class TicketStatusUpdate(BaseModel):
+    status: TicketStatus
